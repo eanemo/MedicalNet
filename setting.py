@@ -110,7 +110,15 @@ def parse_opts():
         '--manual_seed', default=1, type=int, help='Manually set random seed')
     parser.add_argument(
         '--ci_test', action='store_true', help='If true, ci testing is used.')
+    parser.add_argument(
+        '--save_to', default="",
+        help="Save url"
+    )
     args = parser.parse_args()
-    args.save_folder = "./trails/models/{}_{}".format(args.model, args.model_depth)
+
+    if args.save_to:
+        args.save_folder = args.save_to
+    else:
+        args.save_folder = "./trails/models/{}_{}".format(args.model, args.model_depth)
     
     return args
