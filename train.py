@@ -75,7 +75,7 @@ def train(data_loader, model, optimizer, scheduler, total_epochs, save_interval,
           
             if not sets.ci_test:
                 # save model
-                if batch_id == 0 and batch_id_sp != 0 and batch_id_sp % save_interval == 0:
+                if batch_id == 0 and batch_id_sp != 0 and epoch % save_interval == 0:
                 #if batch_id_sp != 0 and batch_id_sp % save_interval == 0:
                     model_save_path = '{}_epoch_{}_batch_{}.pth.tar'.format(save_folder, epoch, batch_id)
                     model_save_dir = os.path.dirname(model_save_path)
