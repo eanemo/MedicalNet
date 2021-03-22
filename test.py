@@ -12,6 +12,8 @@ import os
 from utils.file_process import load_lines
 import numpy as np
 
+from urllib.parse import urlparse
+
 
 def seg_eval(pred, label, clss):
     """
@@ -106,4 +108,5 @@ if __name__ == '__main__':
         print('mean dice for class-{} is {}'.format(idx, mean_dice_per_task))
 
     # Generación de volúmenes resultado
-    print(label_names)
+    for label_name, idx in enumerate(label_names):
+        print(label_name, idx)
