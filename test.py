@@ -119,7 +119,7 @@ if __name__ == '__main__':
         filename = os.path.basename(url.path)
         output_filename =  "output_" + filename
         # to save this 3D (ndarry) numpy use this
-        print("Argmax", mask.argmax())
+        print("Max", mask.max())
         newmask = np.int8( mask.transpose((2, 0, 1)) )
         ni_img = nib.Nifti1Image(newmask, np.eye(4))
         nib.save(ni_img, output_filename)
