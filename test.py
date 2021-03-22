@@ -66,7 +66,7 @@ def test(data_loader, model, img_names, sets):
         scale = [1, depth*1.0/mask_d, height*1.0/mask_h, width*1.0/mask_w]
         mask = ndimage.interpolation.zoom(mask, scale, order=1)
         mask = np.argmax(mask, axis=0)
-        
+
         masks.append(mask)
  
     return masks
@@ -103,4 +103,7 @@ if __name__ == '__main__':
     # print result
     for idx in range(1, sets.n_seg_classes):
         mean_dice_per_task = np.mean(dices[:, idx])
-        print('mean dice for class-{} is {}'.format(idx, mean_dice_per_task))   
+        print('mean dice for class-{} is {}'.format(idx, mean_dice_per_task))
+
+    # Generación de volúmenes resultado
+    print(label_names)
