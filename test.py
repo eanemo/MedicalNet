@@ -111,8 +111,11 @@ if __name__ == '__main__':
     for idx, label_name in enumerate(label_names):
         print(idx, label_name)
         mask = masks[idx]
+        label = nib.load(os.path.join(sets.data_root, label_names[idx]))
 
         url = urlparse(label_name)
         filename = os.path.basename(url.path)
         output_filename =  "output_" + filename
+        # to save this 3D (ndarry) numpy use this
+        ni_img = nib.Nifti1Image(mask, label.affine)
         nib.save(mask, output_filename)
