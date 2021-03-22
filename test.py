@@ -108,5 +108,11 @@ if __name__ == '__main__':
         print('mean dice for class-{} is {}'.format(idx, mean_dice_per_task))
 
     # Generación de volúmenes resultado
-    for label_name, idx in enumerate(label_names):
-        print(label_name, idx)
+    for idx, label_name in enumerate(label_names):
+        print(idx, label_name)
+        mask = masks[idx]
+
+        url = urlparse(label_name)
+        filename = os.path.basename(url.path)
+        output_filename =  "output_" + filename
+        nib.save(mask, output_filename)
