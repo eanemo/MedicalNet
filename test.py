@@ -118,4 +118,4 @@ if __name__ == '__main__':
         output_filename =  "output_" + filename
         # to save this 3D (ndarry) numpy use this
         ni_img = nib.Nifti1Image(mask, label.affine)
-        nib.save(mask, output_filename)
+        nib.save(ni_img, output_filename)
