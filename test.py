@@ -120,6 +120,5 @@ if __name__ == '__main__':
         output_filename =  "output_" + filename
         # to save this 3D (ndarry) numpy use this
         print("Max", mask.max())
-        newmask = np.int8( mask.transpose((2, 0, 1)) )
-        ni_img = nib.Nifti2Image(newmask, np.eye(4))
-        nib.save(ni_img, output_filename)
+        vis_data = nib.Nifti1Image(np.array(mask).astype(np.float32), np.eye(4))
+        nib.save(vis_data, output_filename)
